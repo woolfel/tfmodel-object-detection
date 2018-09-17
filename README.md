@@ -24,6 +24,13 @@ Installation on Windows 10
 
 NOTE: do not try to run the unix version on windows. The latest model_main.py uses pycoco and pycocotools. There is a known bug with pycocotools, which doesn't work on Windows. The link to the issue is here https://github.com/cocodataset/cocoapi/issues/169
 
+Download Resnet101
+===========
+
+The example uses pre-trained model from google. You can download the file from this URL. Unzip the file and copy the the checkpoint files to models directory.
+http://download.tensorflow.org/models/object_detection/faster_rcnn_resnet101_coco_2018_01_28.tar.gz
+
+
 Running on Windows
 ===========
 
