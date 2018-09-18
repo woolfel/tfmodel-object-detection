@@ -7,6 +7,7 @@ import tarfile
 import tensorflow as tf
 import zipfile
 import logging
+import time
 
 from google.protobuf import text_format
 
@@ -133,7 +134,9 @@ def main(_):
         image_np = load_image_into_numpy_array(image)
         image_np_expanded = np.expand_dims(image_np, axis=0)
         # run the detection
+        start_time = time.time()
         output_dict = run_inference_for_single_image(image_np, detection_graph)
+        end_time = time.time()
         vis_util.visualize_boxes_and_labels_on_image_array(
           image_np,
           output_dict['detection_boxes'],
@@ -147,6 +150,9 @@ def main(_):
         plt.figure(figsize=IMAGE_SIZE)
         plt.imshow(image_np)
         plt.savefig('result.jpg')
+        print('Start: %0.4f' % start_time)
+        print('Finish: %0.4f' % end_time)
+        print('Elapsed Time: %0.4f' % (end_time - start_time))
   else:
   	print('please provide --image=')
 
