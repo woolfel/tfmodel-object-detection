@@ -45,3 +45,7 @@ Export trained model
 ===========
 
 1. run export_graph.sh
+
+Example from the test
+===========
+(https://github.com/woolfel/tfmodel-object-detection/blob/master/sample/image50-result.jpg)
