@@ -48,4 +48,4 @@ Export trained model
 
 Example from the test
 ===========
-(https://github.com/woolfel/tfmodel-object-detection/blob/master/sample/image50-result.jpg)
+![Object detection on one of the images](https://github.com/woolfel/tfmodel-object-detection/blob/master/sample/image50-result.jpg)
