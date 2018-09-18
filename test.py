@@ -115,7 +115,8 @@ def main(_):
     categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes)
     category_index = label_map_util.create_category_index(categories)
       
-    detection_graph = tf.Graph()    
+    detection_graph = tf.Graph()
+    IMAGE_SIZE = (5, 5)
     
     logging.info( 'start')
     with detection_graph.as_default():
@@ -143,7 +144,9 @@ def main(_):
           use_normalized_coordinates=True,
           line_thickness=8)
         print(output_dict)
+        plt.figure(figsize=IMAGE_SIZE)
         plt.imshow(image_np)
+        plt.savefig('result.jpg')
   else:
   	print('please provide --image=')
 
