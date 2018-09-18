@@ -152,7 +152,7 @@ def main(_):
         plt.savefig('result.jpg')
         print('Start: %0.4f' % start_time)
         print('Finish: %0.4f' % end_time)
-        print('Elapsed Time: %0.4f' % (end_time - start_time))
+        print('Elapsed Time: %0.4f seconds' % (end_time - start_time))
   else:
   	print('please provide --image=')
 
