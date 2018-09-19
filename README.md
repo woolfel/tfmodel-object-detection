@@ -46,6 +46,22 @@ Export trained model
 
 1. run export_graph.sh
 
+Test the model
+===========
+
+There's two scripts for testing the retrained model.
+
+test.py - loads the frozen model and runs inference on a test image
+test_multiple_runs.py - runs inference 10 times and prints the average run time
+
+
 Example from the test
 ===========
 ![Object detection on one of the images](https://github.com/woolfel/tfmodel-object-detection/blob/master/sample/image50-result.jpg)
+
+Performance
+===========
+
+System: Core i7-6700 3.4Ghz, Gigabyte 1070, 64GB RAM, Micron Nvme SSD
+
+On my workstation, running test.py on ./data/images/image00.jpg takes 12 seconds. Running test_multiple_runs.py on ./data/images/image00.jpg had an average of 9 seconds. The moral of the story is you need either Titan V or Testla V100 to get decent performance. At 9 seconds/image, a system equivalent to my workstation would get 6 frames/minute.
