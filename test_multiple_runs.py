@@ -136,25 +136,28 @@ def main(_):
         image_np = load_image_into_numpy_array(image)
         image_np_expanded = np.expand_dims(image_np, axis=0)
         # run the detection
-        start_time = time.time()
-        output_dict = run_inference_for_single_image(image_np, detection_graph)
-        end_time = time.time()
-        vis_util.visualize_boxes_and_labels_on_image_array(
-          image_np,
-          output_dict['detection_boxes'],
-          output_dict['detection_classes'],
-          output_dict['detection_scores'],
-          category_index,
-          instance_masks=output_dict.get('detection_masks'),
-          use_normalized_coordinates=True,
-          line_thickness=8)
-        print(output_dict)
-        plt.figure(figsize=IMAGE_SIZE)
-        plt.imshow(image_np)
-        plt.savefig('result.jpg')
-        print('Start: %0.4f' % start_time)
-        print('Finish: %0.4f' % end_time)
-        print('Elapsed Time: %0.4f seconds' % (end_time - start_time))
+        runs = []
+        for x in range(0,10):
+          start_time = time.time()
+          output_dict = run_inference_for_single_image(image_np, detection_graph)
+          runs.append(time.time() - start_time)
+          vis_util.visualize_boxes_and_labels_on_image_array(
+            image_np,
+            output_dict['detection_boxes'],
+            output_dict['detection_classes'],
+            output_dict['detection_scores'],
+            category_index,
+            instance_masks=output_dict.get('detection_masks'),
+            use_normalized_coordinates=True,
+            line_thickness=6)
+          #print(output_dict)
+          plt.figure(figsize=IMAGE_SIZE)
+          plt.imshow(image_np)
+          plt.savefig('result.jpg')
+        #print('Start: %0.4f' % start_time)
+        #print('Finish: %0.4f' % end_time)
+        #print('Elapsed Time: %0.4f seconds' % (end_time - start_time))
+        print('Average run: %0.4f' % float(sum(runs) / len(runs)))
   else:
   	print('please provide --image=')
 

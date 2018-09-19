@@ -49,11 +49,12 @@ Export trained model
 Test the model
 ===========
 
-There's two scripts for testing the retrained model.
+There's two scripts for testing the retrained model. You will need the frozen graph saved in your training directory.
 
 test.py - loads the frozen model and runs inference on a test image
 test_multiple_runs.py - runs inference 10 times and prints the average run time
 
+python test.py --pipeline_config_path=./models/faster_rcnn_resnet101.config --image=./data/images/image00.jpg --frozengraph=./frozen_resnet101_graph.pb
 
 Example from the test
 ===========
